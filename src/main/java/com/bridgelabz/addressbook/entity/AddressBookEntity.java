@@ -17,13 +17,24 @@ public class AddressBookEntity {
     private String phoneNumber;
     private String email;
 
-    public AddressBookEntity(String name, String address, String phoneNumber, String email) {
-        this.name = name;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+    public AddressBookEntity(Long id, String name, String address, String phoneNumber, String email) {
+        this.id=id;
+        this.name=name;
+        this.address=address;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+
     }
 
+//    public AddressBookEntity(String name, String address, String phoneNumber, String email) {
+//        this.name = name;
+//        this.address = address;
+//        this.phoneNumber = phoneNumber;
+//        this.email = email;
+//    }
+    
+    
+    
     public Long getId() {
         return id;
     }
