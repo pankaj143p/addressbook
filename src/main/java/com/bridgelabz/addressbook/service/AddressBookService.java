@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// service  layer to write all functions(ex-crud oprations)
+
 @Service
 public class AddressBookService {
     @Autowired
