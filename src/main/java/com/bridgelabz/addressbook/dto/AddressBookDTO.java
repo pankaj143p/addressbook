@@ -1,15 +1,12 @@
-package com.bridgelabz.addressbook.entity;
+package com.bridgelabz.addressbook.dto;
 
-import com.bridgelabz.addressbook.dto.AddressBookDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
-public class AddressBookEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AddressBookDTO {
+
     private Long id;
 
     private String name;
@@ -17,13 +14,12 @@ public class AddressBookEntity {
     private String phoneNumber;
     private String email;
 
-    public AddressBookEntity(String name, String address, String phoneNumber, String email) {
+    public AddressBookDTO(String name, String address, String phoneNumber, String email) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-
     public Long getId() {
         return id;
     }
@@ -63,15 +59,4 @@ public class AddressBookEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-    public AddressBookEntity() {
-    }
-
-    // Constructor that accepts AddressBookDTO
-    public AddressBookEntity(AddressBookDTO addressBookDTO) {
-        this.name = addressBookDTO.getName();
-        this.address = addressBookDTO.getAddress();
-        this.phoneNumber = addressBookDTO.getPhoneNumber();
-        this.email = addressBookDTO.getEmail();
-    }
-
 }

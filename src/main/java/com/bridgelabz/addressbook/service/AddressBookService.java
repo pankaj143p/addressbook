@@ -1,5 +1,6 @@
 package com.bridgelabz.addressbook.service;
 
+import com.bridgelabz.addressbook.dto.AddressBookDTO;
 import com.bridgelabz.addressbook.entity.AddressBookEntity;
 import com.bridgelabz.addressbook.repository.AddressBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class AddressBookService {
     }
 
     // method to add entry
-    public AddressBookEntity addEntry(AddressBookEntity addressBookEntity){
+    public AddressBookEntity addEntry(AddressBookDTO addressBookDTO){
+        AddressBookEntity addressBookEntity = new AddressBookEntity(addressBookDTO.getName(), addressBookDTO.getAddress(),addressBookDTO.getEmail(),addressBookDTO.getPhoneNumber());
         return addressBookRepository.save(addressBookEntity);
     }
 
@@ -28,9 +30,9 @@ public class AddressBookService {
     }
 
     // method to update entry
-    public AddressBookEntity updateEntry(Long id, AddressBookEntity addressBookEntity){
+    public AddressBookEntity updateEntry(Long id, AddressBookDTO addressBookDTO){
         if(addressBookRepository.existsById(id)){
-            addressBookEntity.setId(id);
+            AddressBookEntity addressBookEntity = new AddressBookEntity(addressBookDTO.getName(), addressBookDTO.getAddress(),addressBookDTO.getEmail(),addressBookDTO.getPhoneNumber());
             return addressBookRepository.save(addressBookEntity);
         }
         return null;

@@ -1,5 +1,6 @@
 package com.bridgelabz.addressbook.controller;
 
+import com.bridgelabz.addressbook.dto.AddressBookDTO;
 import com.bridgelabz.addressbook.service.AddressBookService;
 import com.bridgelabz.addressbook.entity.AddressBookEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class AddressBookController {
 
     // for add entries
     @PostMapping("/add")
-    public AddressBookEntity addEntry(@RequestBody AddressBookEntity addressBookEntity){
-        return addressBookService.addEntry(addressBookEntity);
+    public AddressBookEntity addEntry(@RequestBody AddressBookDTO addressBookDTO){
+        return addressBookService.addEntry(addressBookDTO);
     }
 
     @GetMapping("/get/{id}")
@@ -30,8 +31,8 @@ public class AddressBookController {
     }
 
     @PutMapping("/update/{id}")
-    public AddressBookEntity updateEntry(@PathVariable  Long id, @RequestBody AddressBookEntity addressBookEntity){
-        return addressBookService.updateEntry(id,addressBookEntity);
+    public AddressBookEntity updateEntry(@PathVariable  Long id, @RequestBody AddressBookDTO addressBookDTO){
+        return addressBookService.updateEntry(id,addressBookDTO);
     }
 
     @DeleteMapping("/delete/{id}")
