@@ -18,6 +18,7 @@ public class AddressBookController {
         return addressBookService.getAllEntries();
     }
 
+    // for add entries
     @PostMapping("/add")
     public AddressBookEntity addEntry(@RequestBody AddressBookEntity addressBookEntity){
         return addressBookService.addEntry(addressBookEntity);
