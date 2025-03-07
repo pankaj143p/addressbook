@@ -11,33 +11,43 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/addressbook")
 public class AddressBookController {
+
     @Autowired
     AddressBookService addressBookService;
 
+    // CORS for this specific method
+    @CrossOrigin(origins = "http://localhost:4200") // Allow cross-origin requests from Angular frontend
     @GetMapping("/all")
-    public List<AddressBookEntity> getAll(){
+    public List<AddressBookEntity> getAll() {
         return addressBookService.getAllEntries();
     }
 
-    // for add entries
+    // CORS for this specific method
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/add")
-    public AddressBookEntity addEntry(@RequestBody AddressBookDTO addressBookDTO){
+    public AddressBookEntity addEntry(@RequestBody AddressBookDTO addressBookDTO) {
         return addressBookService.addEntry(addressBookDTO);
     }
 
+    // CORS for this specific method
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/get/{id}")
-    public AddressBookEntity getEntryById(@PathVariable Long id){
+    public AddressBookEntity getEntryById(@PathVariable Long id) {
         return addressBookService.getEntryById(id);
     }
 
+    // CORS for this specific method
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/update/{id}")
-    public AddressBookEntity updateEntry(@PathVariable  Long id, @RequestBody AddressBookDTO addressBookDTO){
-        return addressBookService.updateEntry(id,addressBookDTO);
+    public AddressBookEntity updateEntry(@PathVariable Long id, @RequestBody AddressBookDTO addressBookDTO) {
+        return addressBookService.updateEntry(id, addressBookDTO);
     }
 
+    // CORS for this specific method
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/delete/{id}")
-    public String deleteEntry(@PathVariable Long id){
-       boolean isDelete = addressBookService.deleteEntry(id);
-       return isDelete ? "Entry deleted successFully" : "Not found";
+    public String deleteEntry(@PathVariable Long id) {
+        boolean isDelete = addressBookService.deleteEntry(id);
+        return isDelete ? "Entry deleted successfully" : "Not found";
     }
 }

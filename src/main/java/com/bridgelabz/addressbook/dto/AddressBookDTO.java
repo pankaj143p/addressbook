@@ -1,25 +1,22 @@
 package com.bridgelabz.addressbook.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
 public class AddressBookDTO {
-
     private Long id;
 
     private String name;
     private String address;
-    private String phoneNumber;
-    private String email;
+    private String city;
 
-    public AddressBookDTO(String name, String address, String phoneNumber, String email) {
+    public AddressBookDTO(Long id, String name, String address, String city, String state, String zipCode, String phoneNumber) {
+        this.id = id;
         this.name = name;
         this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
-        this.email = email;
     }
+
     public Long getId() {
         return id;
     }
@@ -44,6 +41,30 @@ public class AddressBookDTO {
         this.address = address;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -52,11 +73,8 @@ public class AddressBookDTO {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    private String state;
+    private String zipCode;
+    private String phoneNumber;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
